@@ -1,13 +1,13 @@
 import typer
 from loguru import logger
 
-__all__ = ["app"]
+__all__ = ["cli"]
 
-app = typer.Typer()
+cli = typer.Typer()
 
 
 @logger.catch
-@app.command()
+@cli.command()
 def hello(name: str) -> None:
     """Greet user by name.
 

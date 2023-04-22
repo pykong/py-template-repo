@@ -30,13 +30,13 @@ target_version = ["py311"]
 line-length = 88
 target-version = "py311"
 ignore = ["E402","F841","F401","E302","E305"]
-src = ["src"]
+src = ["app"]
 
     [tool.ruff.isort]
     # https://beta.ruff.rs/docs/settings/#isort
     # https://beta.ruff.rs/docs/faq/#how-does-ruffs-import-sorting-compare-to-isort
-    known-local-folder = ["src"]
-    known-third-party = ["src"]
+    known-local-folder = ["app"]
+    known-third-party = ["app"]
 
 [tool.mypy]
 # https://mypy.readthedocs.io/en/stable/config_file.html#example-pyproject-toml
