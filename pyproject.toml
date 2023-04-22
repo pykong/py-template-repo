@@ -8,6 +8,7 @@ license = "MIT"
     [tool.poetry.dependencies]
     python = "^3.11"
     typer = "*"
+    loguru = "*"
 
     [tool.poetry.dev-dependencies]
     black = "^23.3.0"
