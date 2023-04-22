@@ -14,7 +14,3 @@ def hello(name: str) -> None:
     """
     logger.debug(f"hello called with name:{name}")
     typer.echo(f"Hello, {name}!")
-
-
-if __name__ == "__main__":
-    app()
