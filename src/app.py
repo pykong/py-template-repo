@@ -1,6 +1,8 @@
 import typer
 from loguru import logger
 
+__all__ = ["app"]
+
 app = typer.Typer()
 
 
