@@ -11,9 +11,11 @@ license = "MIT"
     loguru = "*"
 
     [tool.poetry.dev-dependencies]
-    black = "^23.3.0"
-    mypy = "*"
+    black = "*"
     ruff = "*"
+    mypy = "*"
+    deptry = "*"
+    vulture = "*"
     pytest = "*"
 
 [build-system]
