@@ -16,8 +16,9 @@ The above command calls a script entry point that internally invokes:
 
 `poetry run pytest`
 
-See: https://python-poetry.org/docs/basic-usage/#using-poetry-run
+See: <https://python-poetry.org/docs/basic-usage/#using-poetry-run>
 
 ## Links
 
-- https://python-poetry.org/docs/
+- [Poetry Docs](https://python-poetry.org/docs/)
+- [Python Docs: Modules & Packages](https://docs.python.org/3/tutorial/modules.html#packages)
