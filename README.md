@@ -12,6 +12,10 @@ The above command calls a script entry point that internally invokes:
 
 `poetry run python -m app 'Ben'`
 
+To see all possible command targets invoke the `typer` help.
+
+`poetry run app --help`
+
 ### Running tests
 
 `poetry run pytest`
