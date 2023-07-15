@@ -13,12 +13,14 @@ packages = [
     typer = "*"
     loguru = "*"
 
-    [tool.poetry.dev-dependencies]
+    [tool.poetry.group.dev.dependencies]
     black = "*"
     ruff = "*"
     mypy = "*"
     deptry = "*"
     vulture = "*"
+
+    [tool.poetry.group.test.dependencies]
     pytest = "*"
 
 [tool.poetry.scripts]
