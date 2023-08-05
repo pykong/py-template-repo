@@ -46,7 +46,6 @@ src = ["app"]
     # https://beta.ruff.rs/docs/settings/#isort
     # https://beta.ruff.rs/docs/faq/#how-does-ruffs-import-sorting-compare-to-isort
     known-local-folder = ["app"]
-    known-third-party = ["app"]
 
 [tool.mypy]
 # https://mypy.readthedocs.io/en/stable/config_file.html#example-pyproject-toml
