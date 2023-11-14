@@ -2,6 +2,7 @@
     "editor.wordWrapColumn": 88,
     "git.ignoreLimitWarning": true,
     "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
             "source.fixAll": true,
@@ -17,10 +18,8 @@
     },
     "prettier.prettierPath": "${workspaceFolder}/.prettierrc",
     "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
-    "python.linting.flake8Enabled": false,
+    "black-formatter.path": ["${workspaceFolder}/.venv/bin/black"],
     "python.terminal.activateEnvInCurrentTerminal": true,
-    "python.formatting.provider": "black",
-    "python.formatting.blackPath": "${workspaceFolder}/.venv/bin/black",
     "python.testing.pytestEnabled": true,
     "python.testing.pytestPath": "${workspaceFolder}/.venv/bin/pytest",
     "mypy-type-checker.importStrategy": "fromEnvironment",
