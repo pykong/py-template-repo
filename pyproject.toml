@@ -4,24 +4,22 @@ version = "0.1.0"
 description = "..."
 authors = ["Ben Felder <...@...>"]
 license = "MIT"
-packages = [
-    { include = "app" }
-]
+packages = [{ include = "app" }]
 
-    [tool.poetry.dependencies]
-    python = "^3.11"
-    typer = "*"
-    loguru = "*"
+[tool.poetry.dependencies]
+python = "^3.11"
+typer = "*"
+loguru = "*"
 
-    [tool.poetry.group.dev.dependencies]
-    black = "*"
-    ruff = "*"
-    mypy = "*"
-    deptry = "*"
-    vulture = "*"
+[tool.poetry.group.dev.dependencies]
+black = "*"
+ruff = "*"
+mypy = "*"
+deptry = "*"
+vulture = "*"
 
-    [tool.poetry.group.test.dependencies]
-    pytest = "*"
+[tool.poetry.group.test.dependencies]
+pytest = "*"
 
 [tool.poetry.scripts]
 app = "app.__main__:cli"
@@ -39,13 +37,13 @@ target_version = ["py311"]
 # https://pypi.org/project/ruff/
 line-length = 88
 target-version = "py311"
-ignore = ["E402","F841","F401","E302","E305"]
+ignore = ["E402", "F841", "F401"]
 src = ["app"]
 
-    [tool.ruff.isort]
-    # https://beta.ruff.rs/docs/settings/#isort
-    # https://beta.ruff.rs/docs/faq/#how-does-ruffs-import-sorting-compare-to-isort
-    known-local-folder = ["app"]
+[tool.ruff.isort]
+# https://beta.ruff.rs/docs/settings/#isort
+# https://beta.ruff.rs/docs/faq/#how-does-ruffs-import-sorting-compare-to-isort
+known-local-folder = ["app"]
 
 [tool.mypy]
 # https://mypy.readthedocs.io/en/stable/config_file.html#example-pyproject-toml
