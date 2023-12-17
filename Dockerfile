@@ -1,5 +1,5 @@
 # Stage 1: Configuring base image
-FROM simbachain/poetry-3.11 AS base
+FROM simbachain/poetry-3.12 AS base
 
 WORKDIR /app
 

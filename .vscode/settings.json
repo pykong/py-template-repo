@@ -2,11 +2,11 @@
     "editor.wordWrapColumn": 88,
     "git.ignoreLimitWarning": true,
     "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.fixAll": true,
-            "source.organizeImports": true
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
         }
     },
     "[markdown]": {
@@ -16,23 +16,25 @@
             "other": "on"
         }
     },
-    "prettier.configPath": "${workspaceFolder}/.prettierrc",
+    "prettier.configPath": ".prettierrc",
     // https://code.visualstudio.com/docs/python/settings-reference
     "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    // Pylance
+    "python.languageServer": "Pylance",
+    "python.analysis.enablePytestSupport": true,
+    "python.analysis.typeCheckingMode": "basic",
     "python.analysis.autoImportCompletions": true,
-    "python.analysis.inlayHints.variableTypes": true,
+    "python.analysis.inlayHints.variableTypes": false,
     "python.analysis.inlayHints.functionReturnTypes": true,
     "python.analysis.inlayHints.pytestParameters": true,
     "python.terminal.activateEnvInCurrentTerminal": true,
     "python.testing.pytestEnabled": true,
     "python.testing.pytestPath": "${workspaceFolder}/.venv/bin/pytest",
-    "black-formatter.path": ["${workspaceFolder}/.venv/bin/black"],
-    "mypy-type-checker.importStrategy": "fromEnvironment",
-    "mypy-type-checker.interpreter": ["${workspaceFolder}/.venv/bin/python"],
-    "mypy-type-checker.path": ["${workspaceFolder}/.venv/bin/mypy"],
-    "mypy-type-checker.args": ["--config-file=${workspaceFolder}/pyproject.toml"],
+    // Ruff
     "ruff.path": ["${workspaceFolder}/.venv/bin/ruff"],
     "ruff.organizeImports": true,
+    "ruff.importStrategy": "fromEnvironment",
+    // markdownlint
     "markdownlint.config": {
         "default": true,
         "MD025": false,
