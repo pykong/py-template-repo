@@ -37,7 +37,11 @@ ignore = ["E402", "F841"]
 extend-select = ["T100", "T201"]
 extend-unsafe-fixes = ["F401"]
 
-[tool.ruff.isort]
+[tool.ruff.lint.mccabe]
+max-complexity = 5
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
 known-first-party = ["app", "tests"]
 
 [tool.ruff.lint.pydocstyle]
