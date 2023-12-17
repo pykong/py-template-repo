@@ -1,9 +1,11 @@
+# https://python-poetry.org/docs/pyproject/
 [tool.poetry]
 name = "..."
 version = "0.1.0"
 description = "..."
 authors = ["Ben Felder <...@...>"]
 license = "MIT"
+readme = "README.md"
 packages = [{ include = "app" }]
 
 [tool.poetry.dependencies]
@@ -27,15 +29,18 @@ app = "app.__main__:cli"
 
 [tool.ruff]
 # https://docs.astral.sh/ruff/settings/
-line-length = 88
-target-version = "py312"
-ignore = ["E402", "F841", "F401"]
 src = ["app"]
+target-version = "py312"
+line-length = 88
+fix = true
+ignore = ["E402", "F841"]
+extend-select = ["T100", "T201"]
+extend-unsafe-fixes = ["F401"]
 
 [tool.ruff.isort]
 known-first-party = ["app", "tests"]
 
-[tool.ruff.pydocstyle]
+[tool.ruff.lint.pydocstyle]
 convention = "google"
 
 [tool.commitizen]
