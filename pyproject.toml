@@ -28,17 +28,59 @@ pytest-cov = "*"
 app = "app.__main__:cli"
 
 [tool.ruff]
-# https://docs.astral.sh/ruff/settings/
+# https://docs.astral.sh/ruff/
 src = ["app"]
 target-version = "py312"
 line-length = 88
-fix = true
-ignore = ["E402", "F841"]
-extend-select = ["T100", "T201"]
-extend-unsafe-fixes = ["F401"]
+extend-select = [
+    # way to see conflicting rules?
+    "C901",  # mccabe
+    "N",     # pep8-naming
+    "D",     # pydocstyle
+    "UP",    # pyupgrade
+    "ASYNC", # flake8-async
+    "S",     # flake8-bandit
+    "BLE",   # flake8-blind-except
+    "FBT",   # flake8-boolean-trap
+    "B",     # flake8-bugbear
+    "A",     # flake8-builtins
+    "COM",   # flake8-commas
+    "C4",    # flake8-comprehensions
+    "DTZ",   # flake8-datetimez
+    "T10",   # flake8-debugger
+    "ISC",   # flake8-implicit-str-concat
+    "ICN",   # flake8-import-conventions
+    "INP",   # flake8-no-pep420
+    "PIE",   # flake8-pie
+    "T20",   # flake8-print
+    "PT",    # flake8-pytest-style
+    "RSE",   # flake8-raise
+    "RET",   # flake8-return
+    "SLF",   # flake8-self
+    "SIM",   # flake8-simplify
+    "ARG",   # flake8-unused-arguments
+    "PTH",   # flake8-use-pathlib
+    "ERA",   # flake8-eradicate
+    "PL",    # pylint
+    "TRY",   # tryceratops
+    "PERF",  # perflint
+    "FURB",  # refurb
+    "RUF",   # ruff-specific rules
+]
+ignore = [
+    # pydocstyle 'undocumented'
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+]
 
 [tool.ruff.lint.mccabe]
-max-complexity = 5
+max-complexity = 12
 
 [tool.ruff.lint.isort]
 lines-after-imports = 2
