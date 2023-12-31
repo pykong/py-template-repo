@@ -89,6 +89,9 @@ known-first-party = ["app", "tests"]
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
+[tool.pyright]
+typeCheckingMode = "basic"
+
 [tool.commitizen]
 # Set major_version_zero to false to move to 1.0.0
 major_version_zero = true
