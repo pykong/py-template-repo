@@ -1,7 +1,7 @@
 # Stage 1: Configuring base image
 FROM simbachain/poetry-3.12 AS base
 
-WORKDIR /app
+WORKDIR /src
 
 COPY pyproject.toml .
 COPY poetry.lock .
@@ -12,7 +12,7 @@ RUN python -m pip install --upgrade pip && \
 
 # Stage 2: Production environment with source code
 FROM base AS production
-COPY . /app
+COPY . /src
 RUN poetry install --without dev,test
 
-CMD ["poetry", "run", "app", "hello", "Ben"]
+CMD ["poetry", "run", "src", "hello", "Ben"]

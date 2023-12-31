@@ -4,17 +4,17 @@
 
 Execute:
 
-`poetry run app 'Ben'`
+`poetry run src 'Ben'`
 
 You will see a logline and 'Hello, Ben!' printed on the console.
 
 The above command calls a script entry point that internally invokes:
 
-`poetry run python -m app 'Ben'`
+`poetry run python -m src 'Ben'`
 
 To see all possible command targets invoke the `typer` help.
 
-`poetry run app --help`
+`poetry run src --help`
 
 ### Running tests
 

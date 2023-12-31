@@ -6,7 +6,7 @@ description = "..."
 authors = ["Ben Felder <...@...>"]
 license = "MIT"
 readme = "README.md"
-packages = [{ include = "app" }]
+packages = [{ include = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -25,11 +25,11 @@ pytest = "*"
 pytest-cov = "*"
 
 [tool.poetry.scripts]
-app = "app.__main__:cli"
+src = "src.__main__:cli"
 
 [tool.ruff]
 # https://docs.astral.sh/ruff/
-src = ["app"]
+src = ["src"]
 target-version = "py312"
 line-length = 88
 extend-select = [
@@ -84,7 +84,7 @@ max-complexity = 12
 
 [tool.ruff.lint.isort]
 lines-after-imports = 2
-known-first-party = ["app", "tests"]
+known-first-party = ["src", "tests"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
