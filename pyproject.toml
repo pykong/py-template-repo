@@ -25,7 +25,7 @@ pytest = "*"
 pytest-cov = "*"
 
 [tool.poetry.scripts]
-src = "src.__main__:cli"
+cli = "src.__main__:cli"
 
 [tool.ruff]
 # https://docs.astral.sh/ruff/

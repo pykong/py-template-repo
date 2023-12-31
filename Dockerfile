@@ -15,4 +15,4 @@ FROM base AS production
 COPY . /src
 RUN poetry install --without dev,test
 
-CMD ["poetry", "run", "src", "hello", "Ben"]
+CMD ["poetry", "run", "cli", "hello", "Ben"]
