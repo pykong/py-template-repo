@@ -8,29 +8,29 @@ license = "MIT"
 readme = "README.md"
 packages = [{ include = "src" }]
 
-[tool.poetry.dependencies]
-python = "^3.12"
-typer = "*"
-loguru = "*"
-
-[tool.poetry.group.dev.dependencies]
-ruff = "*"
-pyright = "*"
-deptry = "*"
-vulture = "*"
-commitizen = "*"
-
-[tool.poetry.group.test.dependencies]
-pytest = "*"
-pytest-cov = "*"
-
-[tool.poetry.scripts]
-cli = "src.__main__:cli"
+    [tool.poetry.dependencies]
+    python = "^3.12"
+    typer = "*"
+    loguru = "*"
+    
+    [tool.poetry.group.dev.dependencies]
+    ruff = "*"
+    pyright = "*"
+    deptry = "*"
+    vulture = "*"
+    commitizen = "*"
+    
+    [tool.poetry.group.test.dependencies]
+    pytest = "*"
+    pytest-cov = "*"
+    
+    [tool.poetry.scripts]
+    cli = "src.__main__:cli"
 
 [tool.ruff]
 # https://docs.astral.sh/ruff/
 src = ["src"]
-target-version = "py312"
+target-version = "py311"
 line-length = 88
 extend-select = [
     # way to see conflicting rules?
@@ -71,30 +71,63 @@ ignore = [
     # pydocstyle 'undocumented'
     "D100",
     "D101",
-    "D102",
-    "D103",
+    # "D102",
+    # "D103",
     "D104",
     "D105",
     "D106",
     "D107",
+    "PTH123",  # builtin-open
+    "PT004",  # leading underscore for None returners
+    # stylistic rules
+    # https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+    "W191",
+    "E111",
+    "E114",
+    "E117",
+    "D206",
+    "D300",
+    "Q000",
+    "Q001",
+    "Q002",
+    "Q003",
+    "COM812",
+    "COM819",
+    "ISC001",
+    "ISC002",
+    "TRY003",  # restricts even inbuilt exception types
 ]
 
-[tool.ruff.lint.mccabe]
-max-complexity = 12
+    [tool.ruff.extend-per-file-ignores]
+    "test*" = [
+        "ARG001",  # mock arguments are unused
+        "D103",  # test functions do not need docstring
+        "S101"  # assert statements are fine in tests
+    ]
 
-[tool.ruff.lint.isort]
-lines-after-imports = 2
-known-first-party = ["src", "tests"]
+    [tool.ruff.lint.mccabe]
+    max-complexity = 12
 
-[tool.ruff.lint.pydocstyle]
-convention = "google"
+    [tool.ruff.lint.isort]
+    # https://beta.ruff.rs/docs/settings/#isort
+    # https://beta.ruff.rs/docs/faq/#how-does-ruffs-import-sorting-compare-to-isort
+    lines-after-imports = 2
+    known-first-party = ["src", "tests"]
+
+    [tool.ruff.lint.pydocstyle]
+    convention = "google"
 
 [tool.pyright]
 typeCheckingMode = "basic"
 
+[tool.deptry]
+known_first_party = ["src", "tests"]
+
 [tool.commitizen]
-# Set major_version_zero to false to move to 1.0.0
-major_version_zero = true
+name = "cz_conventional_commits"
+tag_format = "$version"
+version_scheme = "pep440"
+version_provider = "poetry"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
