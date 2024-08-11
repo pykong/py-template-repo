@@ -23,6 +23,7 @@ commitizen = "*"
 [tool.poetry.group.test.dependencies]
 pytest = "*"
 pytest-cov = "*"
+pytest-xdist = "*"
 
 [tool.poetry.scripts]
 cli = "src.__main__:cli"
