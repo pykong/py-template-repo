@@ -12,6 +12,9 @@ packages = [{ include = "*", from = "src", to = "my_package" }]
 python = "^3.12"
 typer = "*"
 loguru = "*"
+pydantic = "^2.8.2"
+pydantic-settings = "^2.4.0"
+httpx = "^0.27.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "*"
