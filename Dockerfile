@@ -17,8 +17,11 @@ WORKDIR /app
 # Copy the pyproject.toml and poetry.lock files
 COPY pyproject.toml poetry.lock ./
 
+# Ensure README.md is present
+RUN touch README.md
+
 # Install dependencies and build the wheel
-RUN poetry install --no-root --without dev,test --no-interaction && \
+RUN poetry install --no-root --without dev,test --no-interaction --no-ansi && \
     poetry build -f wheel
 
 
