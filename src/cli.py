@@ -5,6 +5,7 @@ from loguru import logger
 from .subpackage_one import flip_coin, flip_n_coins
 from .subpackage_two import pizza_or_hamburger
 
+
 __all__ = ["cli"]
 
 cli = typer.Typer()
@@ -52,3 +53,15 @@ def chose_food() -> None:
     food = pizza_or_hamburger()
     logger.debug(f"subpackage_two.chose_food: {food}")
     typer.echo(f"Tonight we'll eat: {food}!")
+
+
+@logger.catch
+@cli.command()
+def read_config() -> None:
+    """Read configuration."""
+    # INFO: This is just to demonstrate non top-level import
+    from src.config import Config
+
+    config = Config()
+    logger.debug(f"config: {config}")
+    typer.echo(f"Config: {config.model_dump()}")
