@@ -6,7 +6,7 @@ description = "..."
 authors = ["Ben Felder <...@...>"]
 license = "MIT"
 readme = "README.md"
-packages = [{ include = "src" }]
+packages = [{ include = "*", from = "src", to = "my_package" }]
 
 [tool.poetry.dependencies]
 python = "^3.12"
