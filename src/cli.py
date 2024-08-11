@@ -1,9 +1,12 @@
 import typer
 from loguru import logger
 
+from src.subpackage_two import url_check
+
 # INFO: This is just to demonstrate importing from a subpackage
 from .subpackage_one import flip_coin, flip_n_coins
 from .subpackage_two import pizza_or_hamburger
+
 
 __all__ = ["cli"]
 
@@ -35,7 +38,7 @@ def flip_coins(flip_n_times: int) -> None:
     """
     if not flip_n_times:
         raise ValueError("flip_n_times must be > 0")
-    elif flip_n_times == 1:
+    if flip_n_times == 1:
         coin = flip_coin()
         logger.debug(f"subpackage_one.flip_coin: {coin}")
         typer.echo(f"Coin: {coin}!")
@@ -52,3 +55,18 @@ def chose_food() -> None:
     food = pizza_or_hamburger()
     logger.debug(f"subpackage_two.chose_food: {food}")
     typer.echo(f"Tonight we'll eat: {food}!")
+
+
+@logger.catch
+@cli.command()
+def read_config() -> None:
+    """Read configuration."""
+    # INFO: This is just to demonstrate non top-level import
+    from src.config import Config
+
+    config = Config()
+    logger.debug(f"config: {config}")
+    typer.echo(f"Config: {config.model_dump()}")
+
+    url_check_result = url_check.check_url(config)
+    logger.debug(f"url_check_result: {url_check_result}")
