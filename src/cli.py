@@ -5,7 +5,8 @@ from src.subpackage_two import url_check
 
 # INFO: This is just to demonstrate importing from a subpackage
 from .subpackage_one import flip_coin, flip_n_coins
-from .subpackage_two import pizza_or_hamburger
+from .subpackage_two import pizza_or_hamburger, url_check
+
 
 
 __all__ = ["cli"]
