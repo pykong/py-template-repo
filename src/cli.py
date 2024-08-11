@@ -36,7 +36,7 @@ def flip_coins(flip_n_times: int) -> None:
     """
     if not flip_n_times:
         raise ValueError("flip_n_times must be > 0")
-    elif flip_n_times == 1:
+    if flip_n_times == 1:
         coin = flip_coin()
         logger.debug(f"subpackage_one.flip_coin: {coin}")
         typer.echo(f"Coin: {coin}!")
