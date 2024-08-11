@@ -15,14 +15,17 @@ RUN pipx install --global poetry
 WORKDIR /app
 
 # Copy the pyproject.toml and poetry.lock files
-COPY pyproject.toml poetry.lock ./
-
-# Ensure README.md is present
-RUN touch README.md
+COPY . ./
 
 # Install dependencies and build the wheel
-RUN poetry install --no-root --without dev,test --no-interaction --no-ansi && \
-    poetry build -f wheel
+RUN poetry install \
+    --no-root \
+    --no-directory \
+    --without dev,test \
+    --no-interaction \
+    --no-ansi
+
+RUN poetry build -f wheel --no-interaction --no-ansi
 
 
 # Stage 2: Runner image, installing wheel, running the application
@@ -34,7 +37,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=on
 
 # Set work directory
-WORKDIR /app
+WORKDIR /src
 
 # Copy the built wheel from the builder stage
 COPY --from=builder /app/dist/*.whl ./
@@ -45,4 +48,4 @@ RUN pip install --no-cache-dir *.whl
 # Copy application code
 COPY . .
 
-CMD ["poetry", "run", "cli", "hello", "Ben"]
+CMD ["python", "-m", "src", "hello", "Ben"]

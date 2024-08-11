@@ -137,8 +137,5 @@ pyrightconfig.json
 # Tests
 tests/
 
-# README
-README.md
-
 # Taskfile
 taskfile.yml
