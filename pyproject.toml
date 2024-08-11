@@ -32,6 +32,8 @@ cli = "src.__main__:cli"
 src = ["src"]
 target-version = "py311"
 line-length = 88
+
+[tool.ruff.lint]
 extend-select = [
     # way to see conflicting rules?
     "C901",  # mccabe
@@ -98,7 +100,7 @@ ignore = [
     "TRY003", # restricts even inbuilt exception types
 ]
 
-[tool.ruff.extend-per-file-ignores]
+[tool.ruff.lint.extend-per-file-ignores]
 "test*" = [
     "ARG001", # mock arguments are unused
     "D103",   # test functions do not need docstring
