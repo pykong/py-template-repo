@@ -23,7 +23,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 
 # Copy the built wheel from the builder stage
-COPY --from=builder /app/dist/*.whl ./
+COPY --from=wheel-builder /app/dist/*.whl ./
 
 # Install the wheel
 RUN pip install --no-cache-dir *.whl
