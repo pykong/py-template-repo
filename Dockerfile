@@ -1,21 +1,34 @@
 # Stage 1: Base image; exporting wheel
-FROM python:3.11-slim-bookworm AS base
+FROM python:3.11-slim-bookworm AS wheel-builder
 
-WORKDIR /src
+# Set environment variables
+ENV POETRY_VIRTUALENVS_CREATE=false
 
-COPY pyproject.toml .
-COPY poetry.lock .
+# Copy the pyproject.toml and poetry.lock files
+COPY pyproject.toml poetry.lock ./
 
-# TODO: Complete image; right now it is not working
+# Install dependencies and build the wheel
+RUN poetry install --no-root --without dev,test && \
+    poetry build -f wheel
 
-# TODO: Pin Poetry version
-RUN python -m pip install --upgrade pip && \
-    poetry config virtualenvs.create false && \
-    poetry install --without dev,test --no-root
 
-# Stage 2: Runner image, installing wheel
+# Stage 2: Runner image, installing wheel, running the application
 FROM python:3.11-slim-bookworm AS runner
-COPY . /src
-RUN poetry install --without dev,test
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+# Set work directory
+WORKDIR /app
+
+# Copy the built wheel from the builder stage
+COPY --from=builder /app/dist/*.whl ./
+
+# Install the wheel
+RUN pip install --no-cache-dir *.whl
+
+# Copy application code
+COPY . .
 
 CMD ["poetry", "run", "cli", "hello", "Ben"]
