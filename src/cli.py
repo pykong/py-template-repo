@@ -1,6 +1,8 @@
 import typer
 from loguru import logger
 
+from src.subpackage_two import url_check
+
 # INFO: This is just to demonstrate importing from a subpackage
 from .subpackage_one import flip_coin, flip_n_coins
 from .subpackage_two import pizza_or_hamburger
@@ -65,3 +67,6 @@ def read_config() -> None:
     config = Config()
     logger.debug(f"config: {config}")
     typer.echo(f"Config: {config.model_dump()}")
+
+    url_check_result = url_check.check_url(config)
+    logger.debug(f"url_check_result: {url_check_result}")
