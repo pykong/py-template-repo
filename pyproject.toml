@@ -38,6 +38,7 @@ target-version = "py312"
 line-length = 88
 
 [tool.ruff.lint]
+preview = true
 task-tags = ["TODO", "FIXME", "XXX", "NOTE", "HACK"]
 extend-select = [
     # way to see conflicting rules?
