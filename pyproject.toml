@@ -34,7 +34,7 @@ cli = "src.__main__:cli"
 [tool.ruff]
 # https://docs.astral.sh/ruff/
 src = ["src"]
-target-version = "py311"
+target-version = "py312"
 line-length = 88
 
 [tool.ruff.lint]
