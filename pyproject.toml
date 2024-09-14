@@ -113,6 +113,7 @@ ignore = [
     "COM819",
     "ISC001",
     "ISC002",
+    "S311",   # warning about cryptographic securit of random()
     "TRY003", # restricts even inbuilt exception types
 ]
 

@@ -60,7 +60,7 @@ def chose_food() -> None:
 def read_config() -> None:
     """Read configuration."""
     # INFO: This is just to demonstrate non top-level import
-    from src.config import Config
+    from src.config import Config  # noqa: PLC0415
 
     config = Config()
     logger.debug(f"config: {config}")
