@@ -124,12 +124,15 @@ known-first-party = ["src", "tests"]
 convention = "google"
 
 [tool.pyright]
+# https://microsoft.github.io/pyright/#/configuration
 typeCheckingMode = "basic"
 
 [tool.deptry]
+# https://deptry.com/usage/
 known_first_party = ["src", "tests"]
 
 [tool.commitizen]
+# https://commitizen-tools.github.io/commitizen/config/
 name = "cz_conventional_commits"
 tag_format = "$version"
 version_scheme = "pep440"
