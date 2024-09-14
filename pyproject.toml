@@ -38,6 +38,7 @@ target-version = "py312"
 line-length = 88
 
 [tool.ruff.lint]
+task-tags = ["TODO", "FIXME", "XXX", "NOTE", "HACK"]
 extend-select = [
     # way to see conflicting rules?
     "C901",  # mccabe
@@ -71,7 +72,17 @@ extend-select = [
     "TRY",   # tryceratops
     "PERF",  # perflint
     "FURB",  # refurb
+    "DOC",   # pydoclint
+    "FAST",  # FastAPI
     "RUF",   # ruff-specific rules
+    "NPY",   # NumPY
+    "PGH",   # pygrep-hooks
+    "PD",    # pandas-vet
+    "INT",   # flake8-gettext
+    "PYI",   # flake8-pyi
+    "G",     # flake8-logging-format
+    "LOG",   # flake8-logging
+    "FA",    # flake8-future-annotations
 ]
 ignore = [
     # pydocstyle 'undocumented'
@@ -109,6 +120,7 @@ ignore = [
     "ARG001", # mock arguments are unused
     "D103",   # test functions do not need docstring
     "S101",   # assert statements are fine in tests
+    "SLF001", # private member access ok in tests
 ]
 
 [tool.ruff.lint.mccabe]
