@@ -12,9 +12,9 @@ packages = [{ include = "*", from = "src", to = "my_package" }]
 python = "^3.12"
 typer = "*"
 loguru = "*"
-pydantic = "^2.8.2"
-pydantic-settings = "^2.4.0"
-httpx = "^0.27.0"
+pydantic = "*"
+pydantic-settings = "*"
+httpx = "*"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "*"
@@ -34,10 +34,12 @@ cli = "src.__main__:cli"
 [tool.ruff]
 # https://docs.astral.sh/ruff/
 src = ["src"]
-target-version = "py311"
+target-version = "py312"
 line-length = 88
 
 [tool.ruff.lint]
+preview = true
+task-tags = ["TODO", "FIXME", "XXX", "NOTE", "HACK"]
 extend-select = [
     # way to see conflicting rules?
     "C901",  # mccabe
@@ -71,7 +73,17 @@ extend-select = [
     "TRY",   # tryceratops
     "PERF",  # perflint
     "FURB",  # refurb
+    "DOC",   # pydoclint
+    "FAST",  # FastAPI
     "RUF",   # ruff-specific rules
+    "NPY",   # NumPY
+    "PGH",   # pygrep-hooks
+    "PD",    # pandas-vet
+    "INT",   # flake8-gettext
+    "PYI",   # flake8-pyi
+    "G",     # flake8-logging-format
+    "LOG",   # flake8-logging
+    "FA",    # flake8-future-annotations
 ]
 ignore = [
     # pydocstyle 'undocumented'
@@ -101,6 +113,7 @@ ignore = [
     "COM819",
     "ISC001",
     "ISC002",
+    "S311",   # warning about cryptographic securit of random()
     "TRY003", # restricts even inbuilt exception types
 ]
 
@@ -109,6 +122,7 @@ ignore = [
     "ARG001", # mock arguments are unused
     "D103",   # test functions do not need docstring
     "S101",   # assert statements are fine in tests
+    "SLF001", # private member access ok in tests
 ]
 
 [tool.ruff.lint.mccabe]
@@ -124,12 +138,15 @@ known-first-party = ["src", "tests"]
 convention = "google"
 
 [tool.pyright]
+# https://microsoft.github.io/pyright/#/configuration
 typeCheckingMode = "basic"
 
 [tool.deptry]
+# https://deptry.com/usage/
 known_first_party = ["src", "tests"]
 
 [tool.commitizen]
+# https://commitizen-tools.github.io/commitizen/config/
 name = "cz_conventional_commits"
 tag_format = "$version"
 version_scheme = "pep440"
