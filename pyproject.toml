@@ -73,7 +73,7 @@ extend-select = [
     "TRY",   # tryceratops
     "PERF",  # perflint
     "FURB",  # refurb
-    "DOC",   # pydoclint
+    #"DOC",   # pydoclint; this is very oppressive
     "FAST",  # FastAPI
     "RUF",   # ruff-specific rules
     "NPY",   # NumPY
@@ -113,8 +113,10 @@ ignore = [
     "COM819",
     "ISC001",
     "ISC002",
-    "S311",   # warning about cryptographic securit of random()
-    "TRY003", # restricts even inbuilt exception types
+    "S311",    # warning about cryptographic security of random()
+    "TRY003",  # restricts even inbuilt exception types
+    "PLW1514", # UTF-8 is default encoding anyway
+    "PGH003",  # type:ignore rule codes difficult with pyright
 ]
 
 [tool.ruff.lint.extend-per-file-ignores]
@@ -123,6 +125,7 @@ ignore = [
     "D103",   # test functions do not need docstring
     "S101",   # assert statements are fine in tests
     "SLF001", # private member access ok in tests
+    "PLC2701", # private name import ok in tests
 ]
 
 [tool.ruff.lint.mccabe]
